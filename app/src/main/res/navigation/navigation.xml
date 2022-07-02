@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/taskFragment">
+
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="dev.g4chi.todolist.ui.view.fragment.TaskFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_task">
+        <action
+            android:id="@+id/action_taskFragment_to_addTaskBottomSheetDialogFragment"
+            app:destination="@id/addTaskBottomSheetDialogFragment" />
+        <action
+            android:id="@+id/action_taskFragment_to_updateTaskBottomSheetDialogFragment"
+            app:destination="@id/updateTaskBottomSheetDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/addTaskBottomSheetDialogFragment"
+        android:name="dev.g4chi.todolist.ui.view.fragment.AddTaskDialogFragment"
+        tools:layout="@layout/fragment_add_task_dialog" />
+    <dialog
+        android:id="@+id/updateTaskBottomSheetDialogFragment"
+        android:name="dev.g4chi.todolist.ui.view.fragment.UpdateTaskDialogFragment"
+        tools:layout="@layout/fragment_update_task_dialog">
+        <argument
+            android:name="taskEntry"
+            app:argType="dev.g4chi.todolist.data.model.TaskEntry" />
+    </dialog>
+</navigation>
